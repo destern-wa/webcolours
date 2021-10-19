@@ -16,6 +16,7 @@ class Colours:
         self.list = [self.random() for _ in range(size)]
         # Non-public property for the current index point within the list
         self._index = 0
+        self.is_paused = False
 
     def next(self):
         """Gets the next colour, and it's complement, from the list
