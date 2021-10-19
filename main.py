@@ -1,6 +1,7 @@
 from tkinter import *
 from colours import Colours
 from threading import Timer
+from random import randrange
 
 
 def main():
@@ -10,6 +11,7 @@ def main():
 
     # Callback for pause/resume button
     def on_pause_toggle():
+        """Pauses/unpauses the updating of colours"""
         # Toggle the pause state
         colours_list.is_paused = not colours_list.is_paused
         # Update the button
@@ -17,6 +19,11 @@ def main():
         # Restart the updating if not paused
         if not colours_list.is_paused:
             next_colours()
+
+    # Callback for randomise button
+    def on_randomise():
+        """Randomises the colours, and number of colours, in the list"""
+        colours_list.randomise()
 
     window = Tk(className="Web-colours")
 
@@ -27,7 +34,7 @@ def main():
     # Buttons
     pause_toggle_button = Button(window, text="Pause", width=25, height=2, command=on_pause_toggle)
     pause_toggle_button.grid(row=1, column=0)
-    randomise_button = Button(window, text="Randomise", width=25, height=2)
+    randomise_button = Button(window, text="Randomise", width=25, height=2, command=on_randomise)
     randomise_button.grid(row=1, column=1)
 
     # Main colour

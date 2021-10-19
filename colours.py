@@ -18,6 +18,13 @@ class Colours:
         self._index = 0
         self.is_paused = False
 
+    def randomise(self):
+        # Recreate the random list of colours
+        self.list = [self.random() for _ in range(self.size)]
+        # Reset the index
+        self._index = 0
+
+
     def next(self):
         """Gets the next colour, and it's complement, from the list
 
